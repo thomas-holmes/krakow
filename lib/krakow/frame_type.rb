@@ -21,8 +21,8 @@ module Krakow
       def decode(bytes)
         size, type = bytes.unpack('l>l>')
         puts "with l>l> size: #{size} -- type: #{type}"
-        size, type = bytes.unpack('N')
-        puts "with N size: #{size} -- type: #{type}"
+        size, type = bytes.unpack('N>N>')
+        puts "with N>N> size: #{size} -- type: #{type}"
         {:size => size - SIZE_BYTES, :type => type}
       end
 
