@@ -19,7 +19,7 @@ module Krakow
       # bytes:: 8 bytes
       # Return information about incoming frame
       def decode(bytes)
-        size, type = bytes.unpack('l>l>')
+        size, type = bytes.unpack('N')
         {:size => size - SIZE_BYTES, :type => type}
       end
 
