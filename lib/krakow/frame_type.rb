@@ -20,9 +20,9 @@ module Krakow
       # Return information about incoming frame
       def decode(bytes)
         size, type = bytes.unpack('l>l>')
-        puts "size: #{size} -- type: #{type}"
+        puts "with l>l> size: #{size} -- type: #{type}"
         size, type = bytes.unpack('N')
-        puts "size: #{size} -- type: #{type}"
+        puts "with N size: #{size} -- type: #{type}"
         {:size => size - SIZE_BYTES, :type => type}
       end
 
