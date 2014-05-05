@@ -139,7 +139,14 @@ module Krakow
         debug "<<< #{buf.inspect}"
         struct = FrameType.decode(buf)
         debug "Decoded structure: #{struct.inspect}"
-        struct[:data] = socket.recv(struct[:size])
+        received = 0
+        struct[:data] = ""
+        while received != struct[:size]
+          data = socket.recv(struct[:size] - received)
+          received += data.length
+          struct[:data] += data
+          debug "Got chunk of size #{data.length}: #{data}"
+        end
         debug "<<< #{struct[:data].inspect}"
         @receiving = false
         frame = FrameType.build(struct)
