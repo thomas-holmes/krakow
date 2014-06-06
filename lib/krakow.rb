@@ -15,5 +15,6 @@ module Krakow
   autoload :Producer, 'krakow/producer'
   autoload :Utils, 'krakow/utils'
   autoload :Version, 'krakow/version'
+  autoload :VERSION, 'krakow/version'
 
 end
